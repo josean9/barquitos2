@@ -38,9 +38,9 @@ def __init__(self, longitud, orientacion=choice(ORIENTACIONES), tocado=False, hu
             self.casillas = {Case.instances[l + c]
                   for l, c in product(letras, repeat(cifra, longitud))}
 
-            for existente in instances:
-                if self.casillas.intersection(existente.casillas):
-                    break  # break relativo al "for existente in barcos:"
+        for existente in instances:
+            if self.casillas.intersection(existente.casillas):
+                break  # break relativo al "for existente in barcos:"
             else:
                 # Agregar el barco en el contenedor de barcos
                 instances.append(self)
@@ -49,9 +49,10 @@ def __init__(self, longitud, orientacion=choice(ORIENTACIONES), tocado=False, hu
                     casilla.barco = self
                 # Agregar estas casillas a las casillas ocupadas :
                 casillas_ocupadas |= self.casillas
-                return
+                break 
 
 @classmethod
 def generar_barcos(cls):
-        for longitud in Conventions.barcos_longitud:
-            Barco(longitud)
+    """Genera todos los barcos del tablero"""
+    for longitud in Conventions.LONGITUDES_BARCOS:
+        cls(longitud)
