@@ -1,6 +1,8 @@
-from clases.Tablero import *
-from clases.Barco import *
-from Conventions import *
+from itertools import product
+
+from juego import CASO_NO_JUGADO, CASO_AGUA, CASO_TOCADO
+from clases import Barco, Conventions, Case, Tablero
+
 
 
 instances = {}
@@ -32,7 +34,7 @@ def jugar(self):
   self.jugadas.add(self)
   
   if self.barco is not None:
-      if len(casilla.barco.casillas - self.casillas_jugadas) == 0:
+      if len(casillas - self.casillas_jugadas) == 0:
           print("Hundido !!")
       else:
           print("Tocado !")

@@ -1,6 +1,10 @@
-from clases.Tablero import *
-from clases.Case import *
-from clases.Conventions import *
+from tkinter import HORIZONTAL
+from juego import ORIENTACIONES
+from clases import Tablero
+from clases import Case
+from clases import Conventions
+from random import choice
+from itertools import product, repeat
 
 instances = []
 casillas_ocupadas = set()
@@ -34,17 +38,17 @@ def __init__(self, longitud):
                 self.casillas = {Case.instances[l + c]
                               for l, c in product(letras, repeat(cifra, longitud))}
 
-            for existente in Barco.instances:
+            for existente in instances:
                 if self.casillas.intersection(existente.casillas):
                     break  # break relativo al "for existente in barcos:"
             else:
                 # Agregar el barco en el contenedor de barcos
-                Barco.instances.append(self)
+                instances.append(self)
                 # Informar la casilla que contiene un barco.
                 for casilla in self.casillas:
                     casilla.barco = self
                 # Agregar estas casillas a las casillas ocupadas :
-                Barco.casillas_ocupadas |= self.casillas
+                casillas_ocupadas |= self.casillas
                 break  # break relativo al "while True:"
 
 @classmethod
