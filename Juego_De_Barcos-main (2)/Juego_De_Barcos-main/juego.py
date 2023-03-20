@@ -3,10 +3,10 @@ import sys
 from itertools import cycle, chain, product, repeat
 from functools import reduce
 from random import shuffle, choice, random
-from clases.Case import *
-from clases.Barco import *
-from clases.Tablero import *
-from clases.Conventions import *
+from clases import Case
+from clases import Barco
+from clases import Tablero
+from clases import Conventions
 
 
 from introducir import (
@@ -58,7 +58,7 @@ def jugar_una_partida():
     """Algoritmo de una partida"""
     # Creamos un tablero de juego vacío
 
-    tablero = TaTablero()
+    tablero = Tablero()
 
     while True:
         tablero.ver()
