@@ -1,6 +1,8 @@
-from tkinter import HORIZONTAL
+
+from venv import *
 from juego import ORIENTACIONES
-from clases import Tablero
+from juego import HORIZONTAL
+
 from clases import Case
 from clases import Conventions
 from random import choice
