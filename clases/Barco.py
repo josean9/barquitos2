@@ -1,3 +1,5 @@
+from venv import juego
+from clases import *
 from juego import HORIZONTAL, ORIENTACIONES
 from clases import Case
 from clases import Conventions
