@@ -1,5 +1,5 @@
 
-from juego import HORIZONTAL, ORIENTACIONES
+from ..juego import HORIZONTAL, ORIENTACIONES
 from clases import Case
 from clases import Conventions
 from random import choice
