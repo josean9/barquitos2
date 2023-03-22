@@ -1,10 +1,11 @@
-from clases.Case import *
-from clases.Barco import *
-from Conventions import *
+from .Case import *
+from .Barco import *
+from .Conventions import *
 
 
 class Tablero():
   def __init__(self):
+
   # Creamos las casillas:
     generar_casillas()
 
